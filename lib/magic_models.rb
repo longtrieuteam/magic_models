@@ -9,7 +9,7 @@ module MagicModels
       schema.models.map(&:define)
     end
 
-    def dump(&block)
+    def dump
       schema = Schema::Dump.new
       yield schema if block_given?
       schema.models.map(&:write)

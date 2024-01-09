@@ -7,4 +7,3 @@ require 'pry'
 require_relative '../spec/schema'
 
 Pry.start
-

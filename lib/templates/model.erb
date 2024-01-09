@@ -3,10 +3,7 @@ class <%= model_name %> < <%= base_class %>
   self.primary_key = :<%= primary_key %>
 
 <% associations.each do |association| %>
-  <%= association.macro %> :<%= association.name %>,
-    class_name: <%= association.class_name.inspect %>,
-    foreign_key: :<%= association.foreign_key %>,
-    primary_key: :<%= association.primary_key %>
+  <%= association.macro %> :<%= association.class_name.underscore %>, class_name: :<%= association.class_name %>, foreign_key: :<%= association.foreign_key %>, primary_key: :<%= association.primary_key %>
 <% end %>
 
 <% appends.each do |append| %>

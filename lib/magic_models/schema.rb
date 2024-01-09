@@ -6,12 +6,13 @@ module MagicModels
     class Base
       attr_reader :appends
       attr_accessor :base_class, :connection
+
       delegate :primary_key, :foreign_keys, to: :connection
 
       def initialize
         @base_class = 'ActiveRecord::Base'
         @connection = ActiveRecord::Base.connection
-        @exclude = ['schema_migrations', 'ar_internal_metadata']
+        @exclude = %w[schema_migrations ar_internal_metadata]
         @appends = Hash.new do |hsh, key|
           hsh[key] = []
         end

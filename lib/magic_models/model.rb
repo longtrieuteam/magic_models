@@ -18,7 +18,7 @@ module MagicModels
     end
 
     def render
-      erb = ERB.new(template, nil, '<>')
+      erb = ERB.new(template, trim_mode: '<>')
       erb.result(binding)
     end
 
@@ -61,7 +61,7 @@ module MagicModels
     end
 
     def template_filename
-      File.expand_path('../../templates/model.erb', __FILE__)
+      File.expand_path('../templates/model.erb', __dir__)
     end
   end
 end
